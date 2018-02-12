@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:local="clr-namespace:XControlsTest"
+    xmlns:controls="clr-namespace:XControls.Forms;assembly=XControls.Forms"
+    x:Class="XControlsTest.XControlsTestPage">
+    <StackLayout>
+        <controls:XEntry  Text="Texto de prueba"/>
+        <controls:XEntry  Text="MaxLength 15" MaxLength="15"/>
+        <controls:XEntry  Text="HasBorder true"  HasBorder="true"/>
+        <controls:XEntry Text="IsPassword true" IsPassword="true"/>
+        <controls:XEntry Text="HasOnlyBottomBorder true" HasOnlyBottomBorder="true"/>
+        <controls:XEntry Text="HasBorder true Red" HasBorder="true" BottomBorderColor="Red"/>
+        <controls:XEntry Text="HasOnlyBottomBorder true Red" HasOnlyBottomBorder="true" BottomBorderColor="Red"/>
+        <TableView Intent="Form">
+            <TableView.Root>
+                <TableSection>
+                    <controls:XEntryCellWithIcon Icon="ic_face" Text="Texto" PlaceHolder="Nombre" KeyboardType="Text"/>
+                    <controls:XEntryCellWithIcon Icon="ic_face" IsPassword="true" Text="" PlaceHolder="Password" KeyboardType="Text"/>
+                    <controls:XEntryCellWithIcon Icon="ic_face" PlaceHolder="Email" KeyboardType="Email"/>
+                    <controls:XEntryCellWithIcon Icon="ic_face" PlaceHolder="Telephone" KeyboardType="Telephone"/>
+                    <controls:XEntryCellWithIcon Icon="ic_face" PlaceHolder="URl" KeyboardType="Url"/>
+                </TableSection>
+            </TableView.Root>
+        </TableView>
+    </StackLayout>
+</ContentPage>

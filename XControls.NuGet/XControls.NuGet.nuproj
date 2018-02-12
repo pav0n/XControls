@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(NuGetAuthoringPath)\NuGet.Packaging.Authoring.props" Condition="Exists('$(NuGetAuthoringPath)\NuGet.Packaging.Authoring.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{08105067-9B5A-4C7E-A9C9-487C1A6D82E7}</ProjectGuid>
+    <Description>XControls</Description>
+    <PackageId>XControls</PackageId>
+    <PackageVersion>1.0.0</PackageVersion>
+    <Authors>pav0n</Authors>
+    <DevelopmentDependency>false</DevelopmentDependency>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>XControls</RootNamespace>
+    <UsePartialTypes>false</UsePartialTypes>
+    <AssemblyName>XControls.NuGet</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <OutputPath>bin\Debug</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\XControls.Android\XControls.Android.csproj">
+      <Project>{D056B94E-64E7-4DC8-AA0F-6CF2CBE3E0CF}</Project>
+      <Name>XControls.Android</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XControls.iOS\XControls.iOS.csproj">
+      <Project>{29501167-C1FC-4C80-AA6D-C373636BA29F}</Project>
+      <Name>XControls.iOS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XControls.Forms\XControls.Forms.csproj">
+      <Project>{E4164CD1-7E45-4D1C-A327-8984A3DCAF00}</Project>
+      <Name>XControls.Forms</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="NuGet.Build.Packaging">
+      <Version>0.2.0</Version>
+      <PrivateAssets>All</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.Common.targets" />
+  <Import Project="$(NuGetAuthoringPath)\NuGet.Packaging.Authoring.targets" Condition="Exists('$(NuGetAuthoringPath)\NuGet.Packaging.Authoring.targets')" />
+</Project>
