@@ -27,23 +27,8 @@ namespace XControls.Renderers
 
         void UpdateBorder()
         {
-            var view = this.Element as XDatePicker;
-            if(view.ShowBorder)
-                {
-                    //Control.Layer.BorderWidth = 1;
-                    Control.BorderStyle = UIKit.UITextBorderStyle.RoundedRect;
-                }else
-                {
-                    //Control.Layer.BorderWidth = 0;
-                    Control.BorderStyle = UIKit.UITextBorderStyle.None; 
-                }
-        }
-        protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
-        {
-            if(XDatePicker.ShowBorderProperty.PropertyName == e.PropertyName)
-            {
-                this.UpdateBorder();
-            }
+            
+           Control.BorderStyle = UIKit.UITextBorderStyle.None; 
         }
     }
 }

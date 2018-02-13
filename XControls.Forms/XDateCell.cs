@@ -56,8 +56,7 @@ namespace XControls.Forms
                 Format = Format,
                 TextColor = Color.Green,
                 HorizontalOptions = LayoutOptions.EndAndExpand,
-                Margin = new Thickness(0, 0, 12, 0),
-                ShowBorder = false
+                Margin = new Thickness(0, 0, 12, 0)
             };
             formLayout.Children.Add(datePicker);
             Tapped += FormEntryCell_Tapped;
