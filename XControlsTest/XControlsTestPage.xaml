@@ -25,7 +25,8 @@
                     </controls:XViewCell>
                     <controls:XTextCellWithIcon Text="ejemplo de texto" Detail="El detalle" ShowDisclosure="true" BackgroundColor="Maroon"/>
                     <TextCell Text="" Detail=""/>
-                    <controls:XDateCell Text="Fecha" Date="2015/05/29"/>
+                    <controls:XDateCell Title="Fecha" Date="2015/05/29"/>
+                    <controls:XActionSheetCell Title="Numeros"  Text="Uno" CancelTitle="Cancelar" SelectorTitle="Selecciona un número"/>
                 </TableSection>
             </TableView.Root>
         </TableView>
