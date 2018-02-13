@@ -35,6 +35,8 @@
     <Compile Include="XEntryCellWithIcon.cs" />
     <Compile Include="XViewCell.cs" />
     <Compile Include="XTextCellWithIcon.cs" />
+    <Compile Include="XDateCell.cs" />
+    <Compile Include="XDatePicker.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -23,8 +23,9 @@
                     <controls:XViewCell ShowDisclosure="true">
                         <Label Text="Example"/>
                     </controls:XViewCell>
-                    <controls:XTextCellWithIcon Text="ejemplo de texto" TextDetail="El detalle" ShowDisclosure="true" BackgroundColor="Maroon"/>
-
+                    <controls:XTextCellWithIcon Text="ejemplo de texto" Detail="El detalle" ShowDisclosure="true" BackgroundColor="Maroon"/>
+                    <TextCell Text="" Detail=""/>
+                    <controls:XDateCell Text="Fecha" Date="2015/05/29"/>
                 </TableSection>
             </TableView.Root>
         </TableView>

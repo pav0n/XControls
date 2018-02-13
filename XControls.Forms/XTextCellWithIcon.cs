@@ -9,8 +9,8 @@ namespace XControls.Forms
             BindableProperty.Create("PlaceHolder", typeof(string), typeof(XTextCellWithIcon), "PlaceHolder");
         public static readonly BindableProperty TextProperty =
             BindableProperty.Create("Text", typeof(string), typeof(XTextCellWithIcon), default(string), BindingMode.TwoWay);
-        public static readonly BindableProperty TextDetailProperty =
-           BindableProperty.Create("TextDetail", typeof(string), typeof(XTextCellWithIcon), default(string), BindingMode.TwoWay);
+        public static readonly BindableProperty DetailProperty =
+           BindableProperty.Create("Detail", typeof(string), typeof(XTextCellWithIcon), default(string), BindingMode.TwoWay);
         public static readonly BindableProperty IconProperty =
             BindableProperty.Create("Icon", typeof(string), typeof(XTextCellWithIcon), "");
 
@@ -38,10 +38,10 @@ namespace XControls.Forms
             set { SetValue(IconProperty, value); }
         }
 
-        public string TextDetail
+        public string Detail
         {
-            get { return (string)GetValue(TextDetailProperty); }
-            set { SetValue(TextDetailProperty, value); }
+            get { return (string)GetValue(DetailProperty); }
+            set { SetValue(DetailProperty, value); }
         }
 
 
@@ -74,7 +74,7 @@ namespace XControls.Forms
             };
             labelDetail = new Label()
             {
-                Text = TextDetail,
+                Text = Detail,
                 LineBreakMode = LineBreakMode.TailTruncation,
                 FontSize = Device.GetNamedSize(NamedSize.Micro, typeof(Label))
             };
@@ -105,9 +105,9 @@ namespace XControls.Forms
             {
                 label.Text = Text;
             }
-            if (propertyName == TextDetailProperty.PropertyName)
+            if (propertyName == DetailProperty.PropertyName)
             {
-                labelDetail.Text = TextDetail;
+                labelDetail.Text = Detail;
             }
             if (propertyName == IconProperty.PropertyName)
             {
@@ -123,7 +123,7 @@ namespace XControls.Forms
             {
                 label.Text = Text;
                 image.Source = Icon;
-                labelDetail.Text = TextDetail;
+                labelDetail.Text = Detail;
             }
         }
 
