@@ -40,6 +40,10 @@ namespace XControls.Renderers
                 {
                     Control.AutocorrectionType = view.Autocorrect.Value ? UITextAutocorrectionType.Yes : UITextAutocorrectionType.No;
                 }
+                if (view.HideCursor)
+                {
+                    Control.TintColor = UIColor.Clear;
+                }
 
                 if (view.ReturnType.HasValue)
                 {

@@ -27,6 +27,9 @@ namespace XControls.Forms
         public static readonly BindableProperty MaxLengthProperty =
             BindableProperty.Create(nameof(MaxLength), typeof(int), typeof(XEntry), int.MaxValue);
 
+        //public static readonly BindableProperty HideCursorProperty =
+        //    BindableProperty.Create(nameof(HideCursor), typeof(bool), typeof(XEntry), false);
+
         public bool HasBorder
         {
             get { return (bool)GetValue(HasBorderProperty); }
@@ -50,6 +53,13 @@ namespace XControls.Forms
             get { return (int)GetValue(MaxLengthProperty); }
             set { SetValue(MaxLengthProperty, value); }
         }
+
+        public bool HideCursor {
+            //get { return (bool)GetValue(HideCursorProperty); } 
+            //set { SetValue(HideCursorProperty, value); }
+            get; set;
+        }
+
 
         public ReturnType? ReturnType { get; set; }
         public bool? Autocorrect { get; set; }

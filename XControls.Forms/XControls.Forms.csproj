@@ -33,6 +33,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="XEntry.cs" />
     <Compile Include="XEntryCellWithIcon.cs" />
+    <Compile Include="XViewCell.cs" />
+    <Compile Include="XTextCellWithIcon.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

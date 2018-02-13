@@ -19,7 +19,12 @@
                     <controls:XEntryCellWithIcon Icon="ic_face" IsPassword="true" Text="" PlaceHolder="Password" KeyboardType="Text"/>
                     <controls:XEntryCellWithIcon Icon="ic_face" PlaceHolder="Email" KeyboardType="Email"/>
                     <controls:XEntryCellWithIcon Icon="ic_face" PlaceHolder="Telephone" KeyboardType="Telephone"/>
-                    <controls:XEntryCellWithIcon Icon="ic_face" PlaceHolder="URl" KeyboardType="Url"/>
+                    <controls:XEntryCellWithIcon Icon="ic_face" PlaceHolder="URl" KeyboardType="Url" ShowDisclosure="true" BackgroundColor="Maroon"/>
+                    <controls:XViewCell ShowDisclosure="true">
+                        <Label Text="Example"/>
+                    </controls:XViewCell>
+                    <controls:XTextCellWithIcon Text="ejemplo de texto" TextDetail="El detalle" ShowDisclosure="true" BackgroundColor="Maroon"/>
+
                 </TableSection>
             </TableView.Root>
         </TableView>

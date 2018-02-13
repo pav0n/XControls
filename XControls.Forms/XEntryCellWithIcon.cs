@@ -3,7 +3,7 @@ using Xamarin.Forms;
 
 namespace XControls.Forms
 {
-    public class XEntryCellWithIcon:ViewCell
+    public class XEntryCellWithIcon:XViewCell
     {
         public static readonly BindableProperty PlaceHolderProperty =
             BindableProperty.Create("PlaceHolder", typeof(string), typeof(XEntryCellWithIcon), "PlaceHolder");

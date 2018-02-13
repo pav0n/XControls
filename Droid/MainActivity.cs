@@ -21,6 +21,8 @@ namespace XControlsTest.Droid
             base.OnCreate(bundle);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
+            XControls.Renderers.XEntryRenderer.Init();
+            XControls.Renderers.XViewCellRenderer.Init();
 
             LoadApplication(new App());
         }
