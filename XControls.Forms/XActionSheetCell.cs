@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using Xamarin.Forms;
 
 namespace XControls.Forms
@@ -13,6 +16,10 @@ namespace XControls.Forms
 
         public static readonly BindableProperty CancelTitleProperty =
             BindableProperty.Create(nameof(CancelTitle), typeof(string), typeof(XActionSheetCell), "Cancel");
+        
+        public static readonly BindableProperty ItemsSourceProperty =
+            BindableProperty.Create(nameof(ItemsSource), typeof(IEnumerable<string>), typeof(XActionSheetCell), new List<string>());
+
         
         public string Text
         {
@@ -31,6 +38,12 @@ namespace XControls.Forms
             set { SetValue(CancelTitleProperty, value); }
         }
 
+        public IEnumerable<string> ItemsSource
+        {
+            get { return (IEnumerable<string>)GetValue(ItemsSourceProperty); }
+            set { SetValue(ItemsSourceProperty, value); }
+        }
+        string[] internalItemsSource;
         Label lText;
         public XActionSheetCell()
         {
@@ -47,7 +60,7 @@ namespace XControls.Forms
 
         protected override async void FormEntryCell_Tapped(object sender, EventArgs e)
         {
-            var result = await Xamarin.Forms.Application.Current.MainPage.DisplayActionSheet(SelectorTitle, CancelTitle, null, new string[] { "uno", "dos" });
+            var result = await Xamarin.Forms.Application.Current.MainPage.DisplayActionSheet(SelectorTitle, CancelTitle, null, internalItemsSource);
             if(result != null)
             {
                 Text = result;
@@ -60,6 +73,10 @@ namespace XControls.Forms
             {
                 lText.Text = Text;
             }
+            else if(propertyName == ItemsSourceProperty.PropertyName)
+            {
+                internalItemsSource = ItemsSource.ToArray();
+            }
         }
         protected override void OnBindingContextChanged()
         {
@@ -68,6 +85,7 @@ namespace XControls.Forms
             if (BindingContext != null)
             {
                 lText.Text = Text;
+                internalItemsSource = ItemsSource.ToArray();
             }
         }
     }

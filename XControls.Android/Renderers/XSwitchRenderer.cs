@@ -49,8 +49,10 @@ namespace XControls.Renderers
         {
             var view = Element as XSwitch;
             if (view.ThumbTintColor == default(Xamarin.Forms.Color)) Control.ThumbDrawable.ClearColorFilter();
-            else Control.ThumbDrawable.SetColorFilter(view.ThumbTintColor.ToAndroid(),
-                                                           PorterDuff.Mode.Multiply);
+            else 
+            {
+                Control.ThumbDrawable.SetColorFilter(view.ThumbTintColor.ToAndroid(), PorterDuff.Mode.Multiply);
+            } 
         }
 
         private void OnCheckedChange(object sender, CompoundButton.CheckedChangeEventArgs checkedChangeEventArgs)
