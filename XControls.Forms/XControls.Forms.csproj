@@ -42,6 +42,7 @@
     <Compile Include="Enums\CellType.cs" />
     <Compile Include="Models\CellModel.cs" />
     <Compile Include="TypeCellDataTemplateSelector.cs" />
+    <Compile Include="XSwitch.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -11,7 +11,11 @@ namespace XControls.Forms
         public static readonly BindableProperty FormatProperty =
             BindableProperty.Create(nameof(Format), typeof(string), typeof(XDateCell), "yyyy/MM/dd");
 
+        public static readonly BindableProperty DateFontSizeProperty =
+            BindableProperty.Create(nameof(DateFontSize), typeof(double), typeof(XDateCell), Device.GetNamedSize(NamedSize.Medium, typeof(Label)));
 
+        public static readonly BindableProperty DateColorProperty =
+            BindableProperty.Create(nameof(DateColor), typeof(Color), typeof(XDateCell), Color.Black);
 
         public DateTime Date
         {
@@ -23,7 +27,16 @@ namespace XControls.Forms
             set { SetValue(FormatProperty, value); }
             get { return (string)GetValue(FormatProperty); }
         }
-
+        public double DateFontSize
+        {
+            set { SetValue(DateFontSizeProperty, value); }
+            get { return (double)GetValue(DateFontSizeProperty); }
+        }
+        public Color DateColor
+        {
+            set { SetValue(DateColorProperty, value); }
+            get { return (Color)GetValue(DateColorProperty); }
+        }
         XDatePicker datePicker;
         public XDateCell()
         {
@@ -31,7 +44,8 @@ namespace XControls.Forms
             {
                 Date = Date,
                 Format = Format,
-                TextColor = Color.Green
+                TextColor = DateColor,
+                FontSize = DateFontSize
             };
             this.FormLayout(datePicker);
         }
@@ -43,9 +57,17 @@ namespace XControls.Forms
             {
                 datePicker.Date = Date;
             }
-            if(propertyName == FormatProperty.PropertyName)
+            else if(propertyName == FormatProperty.PropertyName)
             {
                 datePicker.Format = Format;
+            }
+            else if(propertyName == DateColorProperty.PropertyName)
+            {
+                datePicker.TextColor = DateColor;
+            }
+            else if(propertyName == DateFontSizeProperty.PropertyName)
+            {
+                datePicker.FontSize = DateFontSize;
             }
            
         }
@@ -57,6 +79,8 @@ namespace XControls.Forms
             {
                 datePicker.Date = Date;
                 datePicker.Format = Format;
+                datePicker.TextColor = DateColor;
+                datePicker.FontSize = DateFontSize;
             }
         }
 

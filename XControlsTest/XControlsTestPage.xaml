@@ -20,8 +20,14 @@
                     <controls:XEntryCellWithIcon Icon="ic_face" PlaceHolder="Email" KeyboardType="Email"/>
                     <controls:XEntryCellWithIcon Icon="ic_face" PlaceHolder="Telephone" KeyboardType="Telephone"/>
                     <controls:XEntryCellWithIcon Icon="ic_face" PlaceHolder="URl" KeyboardType="Url" ShowDisclosure="true" BackgroundColor="Maroon"/>
-                    <controls:XViewCell ShowDisclosure="true" Tapped="Handle_Tapped">
-                        <Label Text="Example"/>
+                    <controls:XViewCell ShowDisclosure="true">
+                        <controls:XSwitch TintColor="Lime" OnTintColor="Red" ThumbTintColor="Blue"/>
+                    </controls:XViewCell>
+                    <controls:XViewCell ShowDisclosure="true">
+                        <controls:XSwitch />
+                    </controls:XViewCell>
+                    <controls:XViewCell >
+                        <Switch />
                     </controls:XViewCell>
                     <controls:XTextCellWithIcon Text="ejemplo de texto" Detail="El detalle" ShowDisclosure="true" BackgroundColor="Maroon"/>
                     <TextCell Text="" Detail=""/>

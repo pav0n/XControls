@@ -66,6 +66,7 @@
     <Compile Include="Renderers\XEntryRenderer.cs" />
     <Compile Include="Renderers\XViewCellRenderer.cs" />
     <Compile Include="Renderers\XDatePickerRenderer.cs" />
+    <Compile Include="Renderers\XSwitchRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

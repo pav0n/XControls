@@ -21,14 +21,32 @@ namespace XControls.Renderers
             var view = e.NewElement as XDatePicker;
             if (view != null)
             {
-                this.UpdateBorder();
+                this.updateBorder();
             }
         }
+        void updateFontSize()
+        {
+            var view = Element as XDatePicker;
+            if (view != null)
+            {
+                Control.Font = Control.Font.WithSize((float)view.FontSize);
+            }
 
-        void UpdateBorder()
+        }
+
+        void updateBorder()
         {
             
            Control.BorderStyle = UIKit.UITextBorderStyle.None; 
+        }
+
+        protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            base.OnElementPropertyChanged(sender, e);
+            if (e.PropertyName == XDatePicker.FontSizeProperty.PropertyName)
+            {
+                this.updateFontSize();
+            }
         }
     }
 }

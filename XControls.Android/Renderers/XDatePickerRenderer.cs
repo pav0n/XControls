@@ -20,11 +20,21 @@ namespace XControls.Renderers
             base.OnElementChanged(e);
             if (Control != null)
             {
-                UpdateBorder();
+                this.updateBorder();
+                this.updateFontSize();
             }
         }
 
-        void UpdateBorder()
+        void updateFontSize()
+        {
+            var view = Element as XDatePicker;
+            if(view != null)
+            {
+                Control.TextSize = (float)view.FontSize;  
+            }
+
+        }
+        void updateBorder()
         {
             
                 Control.Background = null;
@@ -35,6 +45,14 @@ namespace XControls.Renderers
                 Control.LayoutParameters = layoutParams;
                 Control.SetPadding(0, 0, 0, 0);
                 SetPadding(0, 0, 0, 0);
+        }
+        protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            base.OnElementPropertyChanged(sender, e);
+            if(e.PropertyName == XDatePicker.FontSizeProperty.PropertyName)
+            {
+                this.updateFontSize();
+            }
         }
 
     }
