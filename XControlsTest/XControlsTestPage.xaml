@@ -20,12 +20,12 @@
                     <controls:XEntryCellWithIcon Icon="ic_face" PlaceHolder="Email" KeyboardType="Email"/>
                     <controls:XEntryCellWithIcon Icon="ic_face" PlaceHolder="Telephone" KeyboardType="Telephone"/>
                     <controls:XEntryCellWithIcon Icon="ic_face" PlaceHolder="URl" KeyboardType="Url" ShowDisclosure="true" BackgroundColor="Maroon"/>
-                    <controls:XViewCell ShowDisclosure="true">
+                    <controls:XViewCell ShowDisclosure="true" Tapped="Handle_Tapped">
                         <Label Text="Example"/>
                     </controls:XViewCell>
                     <controls:XTextCellWithIcon Text="ejemplo de texto" Detail="El detalle" ShowDisclosure="true" BackgroundColor="Maroon"/>
                     <TextCell Text="" Detail=""/>
-                    <controls:XDateCell Title="Fecha" Date="2015/05/29"/>
+                    <controls:XDateCell TitleColor="Red" TitleFontSize="10" Title="Fecha" Date="2015/05/29"/>
                     <controls:XActionSheetCell Title="Numeros"  Text="Uno" CancelTitle="Cancelar" SelectorTitle="Selecciona un número"/>
                 </TableSection>
             </TableView.Root>

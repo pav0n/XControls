@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="XControlsTest.ListViewPage"
+    xmlns:controls="clr-namespace:XControls.Forms;assembly=XControls.Forms"
+    Title="ListView"  >
+	<ContentPage.Content>
+        <ListView ItemsSource="{Binding lista}" x:Name="milista" >
+        </ListView>
+	</ContentPage.Content>
+</ContentPage>
