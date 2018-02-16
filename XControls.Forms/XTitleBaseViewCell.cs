@@ -16,9 +16,6 @@ namespace XControls.Forms
                                         forms.BindableProperty.Create(nameof(Detail), typeof(string), typeof(XTitleBaseViewCell), default(string));
         public static readonly forms.BindableProperty DetailColorProperty =
                                         forms.BindableProperty.Create(nameof(DetailColor), typeof(forms.Color), typeof(XTitleBaseViewCell), forms.Color.DarkGray);
-
-
-
         public static readonly forms.BindableProperty ExtraDetailProperty =
                                         forms.BindableProperty.Create(nameof(ExtraDetail), typeof(string), typeof(XTitleBaseViewCell), default(string));
         public static readonly forms.BindableProperty ExtraDetailColorProperty =
@@ -47,8 +44,8 @@ namespace XControls.Forms
 
         public string ExtraDetail
         {
-            set { SetValue(DetailProperty, value); }
-            get { return (string)GetValue(DetailProperty); }
+            set { SetValue(ExtraDetailProperty, value); }
+            get { return (string)GetValue(ExtraDetailProperty); }
         }
 
         public forms.Color ExtraDetailColor
@@ -59,21 +56,23 @@ namespace XControls.Forms
 
         public string Detail
         {
-            set { SetValue(ExtraDetailProperty, value); }
-            get { return (string)GetValue(ExtraDetailProperty); }
+            set { SetValue(DetailProperty, value); }
+            get { return (string)GetValue(DetailProperty); }
         }
+        protected forms.LayoutOptions InputHorizontalOptions;
         
         private forms.Label label;
         private forms.Label detail;
         private forms.Label extraDetail;
 
-        private forms.GridLength titleColumnWidth = new forms.GridLength(120, forms.GridUnitType.Absolute);
+        private forms.GridLength titleColumnWidth = new forms.GridLength(100, forms.GridUnitType.Absolute);
         private forms.ColumnDefinition titleColumn;
 
         protected abstract void FormEntryCell_Tapped(object sender, EventArgs e);
-
+        forms.View v;
         public void FormLayout(forms.View v)
         {
+            this.v = v;
             titleColumn = new forms.ColumnDefinition()
             {
                 Width = titleColumnWidth
@@ -98,7 +97,7 @@ namespace XControls.Forms
                         Width = new forms.GridLength(1, forms.GridUnitType.Auto)
                     }
                 },
-                Margin = new forms.Thickness(12, 0, 12, 0),
+                Margin = new forms.Thickness(12, 0, 9, 0),
                 RowSpacing = 0
             };titleColumn.Width = string.IsNullOrEmpty(Title) ? 0 : titleColumnWidth;
             label = new forms.Label
@@ -117,26 +116,30 @@ namespace XControls.Forms
                 Text = Detail,
                 FontSize = forms.Device.GetNamedSize(forms.NamedSize.Micro, typeof(forms.Label)),
                 LineBreakMode = forms.LineBreakMode.TailTruncation,
-                TextColor = DetailColor
+                TextColor = DetailColor,
+                HorizontalOptions = InputHorizontalOptions
+
             };
             extraDetail = new forms.Label
             {
-                VerticalOptions = forms.LayoutOptions.FillAndExpand,
+                VerticalOptions = forms.LayoutOptions.CenterAndExpand,
                 Text = ExtraDetail,
                 FontSize = forms.Device.GetNamedSize(forms.NamedSize.Micro, typeof(forms.Label)),
                 LineBreakMode = forms.LineBreakMode.TailTruncation,
                 TextColor = ExtraDetailColor
             };
-            v.HorizontalOptions = forms.LayoutOptions.EndAndExpand;
+            v.HorizontalOptions = InputHorizontalOptions;
             v.VerticalOptions = forms.LayoutOptions.CenterAndExpand;
             formLayout.Children.Add(label, 0, 0);
             formLayout.Children.Add(v, 1, 0);
+
             formLayout.Children.Add(detail, 1, 1);
             formLayout.Children.Add(extraDetail,2,0);
             forms.Grid.SetRowSpan(label, 2);
             forms.Grid.SetRowSpan(extraDetail, 2);
             Tapped += FormEntryCell_Tapped;
             View = formLayout;
+            //formLayout.ForceLayout();
         }
 
 
@@ -172,6 +175,7 @@ namespace XControls.Forms
             {
                 extraDetail.TextColor = ExtraDetailColor;
             }
+
         }
         protected override void OnBindingContextChanged()
         {
@@ -187,6 +191,7 @@ namespace XControls.Forms
                 detail.TextColor = DetailColor;
                 extraDetail.Text = ExtraDetail;
                 extraDetail.TextColor = ExtraDetailColor;
+
             }
         }
     }

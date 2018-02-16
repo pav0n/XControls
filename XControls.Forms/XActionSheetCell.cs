@@ -6,7 +6,7 @@ using Xamarin.Forms;
 
 namespace XControls.Forms
 {
-    public class XActionSheetCell : XTextCell
+    public class XActionSheetCell : XTitleBaseViewCell
     {
         
         public static readonly BindableProperty SelectorTitleProperty =
@@ -17,7 +17,8 @@ namespace XControls.Forms
         
         public static readonly BindableProperty ItemsSourceProperty =
             BindableProperty.Create(nameof(ItemsSource), typeof(IEnumerable<string>), typeof(XActionSheetCell), new List<string>());
-
+        public static readonly BindableProperty TextProperty =
+            BindableProperty.Create(nameof(Text), typeof(string), typeof(XTextCell), default(string), BindingMode.TwoWay);
 
 
         public string SelectorTitle
@@ -36,11 +37,27 @@ namespace XControls.Forms
             get { return (IEnumerable<string>)GetValue(ItemsSourceProperty); }
             set { SetValue(ItemsSourceProperty, value); }
         }
+
+        public string Text
+        {
+            get { return (string)GetValue(TextProperty); }
+            set { SetValue(TextProperty, value); }
+        }
+        Label label;
         string[] internalItemsSource;
         public XActionSheetCell():base()
-        {
-           
+        {  
+            InputHorizontalOptions = LayoutOptions.FillAndExpand;
+            label = new Label
+            {
+                Text = Text,
+                FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label)),
+                LineBreakMode = LineBreakMode.TailTruncation,
+                TextColor = Color.DarkGray
+            };
+            this.FormLayout(label);
         }
+
 
         protected override async void FormEntryCell_Tapped(object sender, EventArgs e)
         {
@@ -56,6 +73,9 @@ namespace XControls.Forms
             if(propertyName == ItemsSourceProperty.PropertyName)
             {
                 internalItemsSource = ItemsSource.ToArray();
+            }else if (propertyName == TextProperty.PropertyName)
+            {
+                label.Text = Text;
             }
         }
         protected override void OnBindingContextChanged()
@@ -64,6 +84,7 @@ namespace XControls.Forms
 
             if (BindingContext != null)
             {
+                label.Text = Text;
                 internalItemsSource = ItemsSource.ToArray();
             }
         }

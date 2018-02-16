@@ -21,7 +21,7 @@ namespace XControls.Forms
                                         forms.BindableProperty.Create(nameof(Icon), typeof(forms.ImageSource), typeof(XIconBaseViewCell), null);
 
         public static readonly forms.BindableProperty InputHorizontalOptionsProperty =
-                                        forms.BindableProperty.Create(nameof(Icon), typeof(forms.LayoutOptions), typeof(XIconBaseViewCell), forms.LayoutOptions.FillAndExpand);
+                                        forms.BindableProperty.Create(nameof(InputHorizontalOptions), typeof(forms.LayoutOptions), typeof(XIconBaseViewCell), forms.LayoutOptions.FillAndExpand);
         public forms.ImageSource Icon
         {
             set { SetValue(IconProperty, value); }

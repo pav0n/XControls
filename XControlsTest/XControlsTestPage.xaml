@@ -5,13 +5,18 @@
     xmlns:controls="clr-namespace:XControls.Forms;assembly=XControls.Forms"
     x:Class="XControlsTest.XControlsTestPage">
     <StackLayout>
-        <controls:XEntry Text="Texto de prueba"/>
-        <controls:XEntry  Text="MaxLength 15" MaxLength="15"/>
-        <controls:XEntry  Text="HasBorder true"  HasBorder="true"/>
-        <controls:XEntry Text="IsPassword true" IsPassword="true"/>
-        <controls:XEntry Text="HasOnlyBottomBorder true" HasOnlyBottomBorder="true"/>
-        <controls:XEntry Text="HasBorder true Red" HasBorder="true" BottomBorderColor="Red"/>
-        <controls:XEntry Text="HasOnlyBottomBorder true Red" HasOnlyBottomBorder="true" BottomBorderColor="Red"/>
+
+        <TableView Intent="Form">
+            <TableView.Root>
+                <TableSection>
+                    <controls:XTextCell ExtraDetail="7" Text="XEntry"  Detail="Mostrando uso de XEntry" ShowDisclosure="true" Tapped="TappedXEntry"/>
+                    <controls:XTextCell ExtraDetail="3" Text="XDateCell"  Detail="Mostrando uso de XDateCell" ShowDisclosure="true" Tapped="TappedXDateCell"/>
+                    <controls:XTextCell ExtraDetail="3" Text="XActionSheetCell"  Detail="Mostrando uso de XActionSheetCell" ShowDisclosure="true" Tapped="TappedXActionSheetCell"/>
+                </TableSection>
+            </TableView.Root>
+        </TableView>
+
+        
         <TableView Intent="Form">
             <TableView.Root>
                 <TableSection>

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
+using Foundation;
+using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 using XControls.Forms;
@@ -21,9 +23,14 @@ namespace XControls.Renderers
             var view = e.NewElement as XDatePicker;
             if (view != null)
             {
+                Control.InputView.AutoresizingMask = UIViewAutoresizing.FlexibleHeight;
+                Control.InputAccessoryView.AutoresizingMask = UIViewAutoresizing.FlexibleHeight;
+                //var p = Control.InputView as UIDatePicker;
+                //NSString t = (NSString)"ValueChanged";
                 this.updateBorder();
             }
         }
+
         void updateFontSize()
         {
             var view = Element as XDatePicker;

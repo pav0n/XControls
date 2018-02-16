@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Xamarin.Forms;
 namespace XControls.Forms
 {
@@ -47,7 +48,13 @@ namespace XControls.Forms
                 TextColor = DateColor,
                 FontSize = DateFontSize
             };
+            datePicker.DateSelected += (sender, e) =>
+            {
+                Date = e.NewDate;
+            };
+            this.InputHorizontalOptions = LayoutOptions.EndAndExpand;
             this.FormLayout(datePicker);
+
         }
 
         protected override void OnPropertyChanged(string propertyName = null)
@@ -70,6 +77,13 @@ namespace XControls.Forms
                 datePicker.FontSize = DateFontSize;
             }
            
+        }
+
+        protected void changevalue<U>( ref U backingStore, U value, string propertyName=null)
+        {
+            if (EqualityComparer<U>.Default.Equals(backingStore, value))
+                return;
+            backingStore = value;
         }
         protected override void OnBindingContextChanged()
         {

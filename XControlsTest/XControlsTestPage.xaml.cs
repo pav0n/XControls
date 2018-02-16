@@ -1,4 +1,5 @@
 ﻿using Xamarin.Forms;
+using XControlsTest.Pages;
 
 namespace XControlsTest
 {
@@ -16,6 +17,24 @@ namespace XControlsTest
         {
             var p = new ListViewPage();
             this.Navigation.PushAsync(p);
+        }
+
+        void TappedXEntry(object sender, System.EventArgs e)
+        {
+            var p = new XEntryPage();
+            this.Navigation.PushAsync(p);
+        }
+
+        void TappedXDateCell(object sender, System.EventArgs e)
+        {
+            var p = new XDateCellPage();
+            this.Navigation.PushAsync(p);
+        }
+
+        void TappedXActionSheetCell(object sender, System.EventArgs e)
+        {
+            var p = new XActionSheetCellPage();
+            this.Navigation.PushAsync(p); 
         }
     }
 }

@@ -7,20 +7,30 @@ namespace XControls.Forms
     {
         public static readonly BindableProperty TextProperty =
             BindableProperty.Create(nameof(Text), typeof(string), typeof(XTextCell), default(string), BindingMode.TwoWay);
+        public static readonly BindableProperty TextColorProperty =
+            BindableProperty.Create(nameof(TextColor), typeof(Color), typeof(XTextCell), Color.Black);
+        
         public string Text
         {
             get { return (string)GetValue(TextProperty); }
             set { SetValue(TextProperty, value); }
         }
+        public Color TextColor
+        {
+            get { return (Color)GetValue(TextColorProperty); }
+            set { SetValue(TextColorProperty, value); }
+        }
         Label label;
+
         public XTextCell()
         {
+            InputHorizontalOptions = LayoutOptions.FillAndExpand;
             label = new Label
             {
                 Text = Text,
                 FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label)),
                 LineBreakMode = LineBreakMode.TailTruncation,
-                TextColor = Color.DarkGray
+                TextColor = TextColor
             };
             this.FormLayout(label);
         }
@@ -30,6 +40,7 @@ namespace XControls.Forms
             
         }
 
+
         protected override void OnPropertyChanged(string propertyName = null)
         {
             base.OnPropertyChanged(propertyName);
@@ -37,7 +48,10 @@ namespace XControls.Forms
             {
                 label.Text = Text;
             }
-
+            else if (propertyName == TextColorProperty.PropertyName)
+            {
+                label.TextColor = TextColor;
+            }
         }
         protected override void OnBindingContextChanged()
         {
@@ -46,6 +60,7 @@ namespace XControls.Forms
             if (BindingContext != null)
             {
                 label.Text = Text;
+                label.TextColor = TextColor;
             }
         }
     }

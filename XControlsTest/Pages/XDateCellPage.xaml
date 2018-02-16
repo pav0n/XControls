@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:XControls.Forms;assembly=XControls.Forms"
+    x:Class="XControlsTest.Pages.XDateCellPage">
+	<ContentPage.Content>
+        <TableView Intent="Form">
+            <TableView.Root>
+                <TableSection>
+                    <controls:XDateCell Title="Fecha" Detail="formato default" Date="{Binding Date1}"/>
+                    <controls:XDateCell Title="Fecha" Format="dd/MM/yyyy" Date="{Binding Date2}" Detail="Formato dd/MM/yyyy"/>
+                    <controls:XDateCell Title="Fecha" Date="{Binding Date2}" Detail="Colores personalizados" DetailColor="Blue" TitleColor="Green" DateColor="Red" />
+                </TableSection>
+            </TableView.Root>
+        </TableView>
+	</ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:XControls.Forms;assembly=XControls.Forms"
+    Title="XEntry"
+    x:Class="XControlsTest.Pages.XEntryPage">
+	<ContentPage.Content>
+        <StackLayout>
+            <controls:XEntry Text="HideCursor=true" HideCursor="true" Keyboard="Email"/>
+            <controls:XEntry Text="MaxLength=15" MaxLength="15" Keyboard="Telephone"/>
+            <controls:XEntry Text="IsPassword=true" IsPassword="true"/>
+            <controls:XEntry Text="HasOnlyBottomBorder=true" HasOnlyBottomBorder="true"/>
+            <controls:XEntry Text="HasBorder=False" HasBorder="false"/>
+            <controls:XEntry Text="HasBorder=true" HasBorder="true" BottomBorderColor="Red"/>
+            <controls:XEntry Text="HasOnlyBottomBorder=true BottomBorderColor=Red" HasOnlyBottomBorder="true" BottomBorderColor="Red"/>
+        </StackLayout>
+	</ContentPage.Content>
+</ContentPage>
