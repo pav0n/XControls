@@ -43,6 +43,8 @@
     <Compile Include="Models\CellModel.cs" />
     <Compile Include="TypeCellDataTemplateSelector.cs" />
     <Compile Include="XSwitch.cs" />
+    <Compile Include="XTextCell.cs" />
+    <Compile Include="XIconBaseViewCell.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

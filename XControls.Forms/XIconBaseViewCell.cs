@@ -1,44 +1,34 @@
 ﻿using System;
 using forms = Xamarin.Forms;
+
 namespace XControls.Forms
 {
-    public  abstract class XTitleBaseViewCell:XViewCell
+    public abstract class XIconBaseViewCell:XViewCell
     {
-        public static readonly forms.BindableProperty TitleProperty =
-                                        forms.BindableProperty.Create(nameof(Title), typeof(string), typeof(XTitleBaseViewCell), default(string));
-        
-        public static readonly forms.BindableProperty TitleFontSizeProperty =
-                                        forms.BindableProperty.Create(nameof(TitleFontSize), typeof(double), typeof(XTitleBaseViewCell), forms.Device.GetNamedSize(forms.NamedSize.Medium, typeof(forms.Label)));
-
-        public static readonly forms.BindableProperty TitleColorProperty =
-                                        forms.BindableProperty.Create(nameof(TitleColor), typeof(forms.Color), typeof(XTitleBaseViewCell), forms.Color.Black);
         public static readonly forms.BindableProperty DetailProperty =
-                                        forms.BindableProperty.Create(nameof(Detail), typeof(string), typeof(XTitleBaseViewCell), default(string));
+                                        forms.BindableProperty.Create(nameof(Detail), typeof(string), typeof(XIconBaseViewCell), default(string));
         public static readonly forms.BindableProperty DetailColorProperty =
-                                        forms.BindableProperty.Create(nameof(DetailColor), typeof(forms.Color), typeof(XTitleBaseViewCell), forms.Color.DarkGray);
+                                        forms.BindableProperty.Create(nameof(DetailColor), typeof(forms.Color), typeof(XIconBaseViewCell), forms.Color.DarkGray);
 
 
 
         public static readonly forms.BindableProperty ExtraDetailProperty =
-                                        forms.BindableProperty.Create(nameof(ExtraDetail), typeof(string), typeof(XTitleBaseViewCell), default(string));
+                                        forms.BindableProperty.Create(nameof(ExtraDetail), typeof(string), typeof(XIconBaseViewCell), default(string));
         public static readonly forms.BindableProperty ExtraDetailColorProperty =
-                                        forms.BindableProperty.Create(nameof(ExtraDetailColor), typeof(forms.Color), typeof(XTitleBaseViewCell), forms.Color.DarkGray);
-        public string Title
+                                        forms.BindableProperty.Create(nameof(ExtraDetailColor), typeof(forms.Color), typeof(XIconBaseViewCell), forms.Color.DarkGray);
+
+        public static readonly forms.BindableProperty IconProperty =
+                                        forms.BindableProperty.Create(nameof(Icon), typeof(forms.ImageSource), typeof(XIconBaseViewCell), null);
+
+        public static readonly forms.BindableProperty InputHorizontalOptionsProperty =
+                                        forms.BindableProperty.Create(nameof(Icon), typeof(forms.LayoutOptions), typeof(XIconBaseViewCell), forms.LayoutOptions.FillAndExpand);
+        public forms.ImageSource Icon
         {
-            set { SetValue(TitleProperty, value); }
-            get { return (string)GetValue(TitleProperty); }
+            set { SetValue(IconProperty, value); }
+            get { return (forms.ImageSource)GetValue(IconProperty); }
         }
 
-        public double TitleFontSize
-        {
-            set { SetValue(TitleFontSizeProperty, value); }
-            get { return (double)GetValue(TitleFontSizeProperty); }
-        }
-        public forms.Color TitleColor
-        {
-            set { SetValue(TitleColorProperty, value); }
-            get { return (forms.Color)GetValue(TitleColorProperty); }
-        }
+
         public forms.Color DetailColor
         {
             set { SetValue(DetailColorProperty, value); }
@@ -62,22 +52,23 @@ namespace XControls.Forms
             set { SetValue(ExtraDetailProperty, value); }
             get { return (string)GetValue(ExtraDetailProperty); }
         }
-        
-        private forms.Label label;
+        public forms.LayoutOptions InputHorizontalOptions
+        {
+            set { SetValue(InputHorizontalOptionsProperty, value); }
+            get { return (forms.LayoutOptions)GetValue(InputHorizontalOptionsProperty); }
+        }
+
+        private forms.Image icon;
         private forms.Label detail;
         private forms.Label extraDetail;
 
-        private forms.GridLength titleColumnWidth = new forms.GridLength(120, forms.GridUnitType.Absolute);
-        private forms.ColumnDefinition titleColumn;
+     
+
 
         protected abstract void FormEntryCell_Tapped(object sender, EventArgs e);
 
         public void FormLayout(forms.View v)
         {
-            titleColumn = new forms.ColumnDefinition()
-            {
-                Width = titleColumnWidth
-            };
             var formLayout = new forms.Grid()
             {
                 RowDefinitions = {
@@ -90,7 +81,9 @@ namespace XControls.Forms
                 },
 
                 ColumnDefinitions = {
-                    titleColumn,
+                    new forms.ColumnDefinition {
+                        Width = new forms.GridLength(1, forms.GridUnitType.Auto)
+                    },
                     new forms.ColumnDefinition {
                         Width = new forms.GridLength(1, forms.GridUnitType.Star)
                     },
@@ -100,16 +93,14 @@ namespace XControls.Forms
                 },
                 Margin = new forms.Thickness(12, 0, 12, 0),
                 RowSpacing = 0
-            };titleColumn.Width = string.IsNullOrEmpty(Title) ? 0 : titleColumnWidth;
-            label = new forms.Label
+            }; 
+
+            icon = new forms.Image()
             {
-                VerticalOptions = forms.LayoutOptions.CenterAndExpand,
-                Text = Title,
-                FontSize = TitleFontSize,
-                LineBreakMode = forms.LineBreakMode.TailTruncation,
-                TextColor = TitleColor,
-                HorizontalOptions = forms.LayoutOptions.FillAndExpand,
+                VerticalOptions = forms.LayoutOptions.Center,
+                Opacity = 0.5
             };
+            icon.WidthRequest = Icon == null ? 0 : 30;
 
             detail = new forms.Label
             {
@@ -127,13 +118,13 @@ namespace XControls.Forms
                 LineBreakMode = forms.LineBreakMode.TailTruncation,
                 TextColor = ExtraDetailColor
             };
-            v.HorizontalOptions = forms.LayoutOptions.EndAndExpand;
+            v.HorizontalOptions = InputHorizontalOptions;
             v.VerticalOptions = forms.LayoutOptions.CenterAndExpand;
-            formLayout.Children.Add(label, 0, 0);
+            formLayout.Children.Add(icon, 0, 0);
             formLayout.Children.Add(v, 1, 0);
             formLayout.Children.Add(detail, 1, 1);
-            formLayout.Children.Add(extraDetail,2,0);
-            forms.Grid.SetRowSpan(label, 2);
+            formLayout.Children.Add(extraDetail, 2, 0);
+            forms.Grid.SetRowSpan(icon, 2);
             forms.Grid.SetRowSpan(extraDetail, 2);
             Tapped += FormEntryCell_Tapped;
             View = formLayout;
@@ -143,20 +134,12 @@ namespace XControls.Forms
         protected override void OnPropertyChanged(string propertyName = null)
         {
             base.OnPropertyChanged(propertyName);
-            if (propertyName == TitleProperty.PropertyName)
+            if (propertyName == IconProperty.PropertyName)
             {
-                titleColumn.Width = string.IsNullOrEmpty(Title) ? 0 : titleColumnWidth;
-                label.Text = Title;
+                icon.WidthRequest = Icon == null ? 0 : 30;
+                icon.Source = Icon;
             }
-            else if (propertyName == TitleColorProperty.PropertyName)
-            {
-                label.TextColor = TitleColor;
-            }
-            else if (propertyName == TitleFontSizeProperty.PropertyName)
-            {
-                label.FontSize = TitleFontSize;
-            }
-            else if(propertyName == DetailProperty.PropertyName)
+            else if (propertyName == DetailProperty.PropertyName)
             {
                 detail.Text = Detail;
             }
@@ -179,10 +162,9 @@ namespace XControls.Forms
 
             if (BindingContext != null)
             {
-                titleColumn.Width = string.IsNullOrEmpty(Title) ? 0 : titleColumnWidth;
-                label.Text = Title;
-                label.FontSize = TitleFontSize;
-                label.TextColor = TitleColor;
+                icon.WidthRequest = Icon == null ? 0 : 30;
+                icon.Source = Icon;
+
                 detail.Text = Detail;
                 detail.TextColor = DetailColor;
                 extraDetail.Text = ExtraDetail;

@@ -6,10 +6,8 @@ using Xamarin.Forms;
 
 namespace XControls.Forms
 {
-    public class XActionSheetCell : XTitleBaseViewCell
+    public class XActionSheetCell : XTextCell
     {
-        public static readonly BindableProperty TextProperty =
-            BindableProperty.Create(nameof(Text), typeof(string), typeof(XActionSheetCell), default(string), BindingMode.TwoWay);
         
         public static readonly BindableProperty SelectorTitleProperty =
             BindableProperty.Create(nameof(SelectorTitle), typeof(string), typeof(XActionSheetCell), default(string));
@@ -20,12 +18,7 @@ namespace XControls.Forms
         public static readonly BindableProperty ItemsSourceProperty =
             BindableProperty.Create(nameof(ItemsSource), typeof(IEnumerable<string>), typeof(XActionSheetCell), new List<string>());
 
-        
-        public string Text
-        {
-            get { return (string)GetValue(TextProperty); }
-            set { SetValue(TextProperty, value); }
-        }
+
 
         public string SelectorTitle
         {
@@ -44,19 +37,10 @@ namespace XControls.Forms
             set { SetValue(ItemsSourceProperty, value); }
         }
         string[] internalItemsSource;
-        Label lText;
-        public XActionSheetCell()
+        public XActionSheetCell():base()
         {
-            lText = new Label
-            {
-                Text = Text,
-                FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label)),
-                LineBreakMode = LineBreakMode.TailTruncation,
-                TextColor = Color.DarkGray
-            };
-            this.FormLayout(lText);
+           
         }
-
 
         protected override async void FormEntryCell_Tapped(object sender, EventArgs e)
         {
@@ -69,11 +53,7 @@ namespace XControls.Forms
         protected override void OnPropertyChanged(string propertyName = null)
         {
             base.OnPropertyChanged(propertyName);
-            if (propertyName == TextProperty.PropertyName)
-            {
-                lText.Text = Text;
-            }
-            else if(propertyName == ItemsSourceProperty.PropertyName)
+            if(propertyName == ItemsSourceProperty.PropertyName)
             {
                 internalItemsSource = ItemsSource.ToArray();
             }
@@ -84,7 +64,6 @@ namespace XControls.Forms
 
             if (BindingContext != null)
             {
-                lText.Text = Text;
                 internalItemsSource = ItemsSource.ToArray();
             }
         }

@@ -10,7 +10,7 @@ namespace XControlsTest
         {
             InitializeComponent();
 
-            MainPage = new XControlsTestPage();
+            MainPage = new NavigationPage(new XControlsTestPage());
         }
 
         protected override void OnStart()

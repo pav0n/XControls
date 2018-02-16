@@ -3,24 +3,20 @@ using Xamarin.Forms;
 
 namespace XControls.Forms
 {
-    public class XEntryCellWithIcon:XViewCell
+    public class XEntryCellWithIcon:XIconBaseViewCell
     {
         public static readonly BindableProperty PlaceHolderProperty =
             BindableProperty.Create("PlaceHolder", typeof(string), typeof(XEntryCellWithIcon), "PlaceHolder");
         public static readonly BindableProperty TextProperty =
             BindableProperty.Create("Text", typeof(string), typeof(XEntryCellWithIcon), default(string), BindingMode.TwoWay);
-        public static readonly BindableProperty IconProperty =
-            BindableProperty.Create("Icon", typeof(string), typeof(XEntryCellWithIcon), "");
         public static readonly BindableProperty IsPasswordProperty =
             BindableProperty.Create(nameof(IsPassword), typeof(bool), typeof(XEntryCellWithIcon), false);
         public static readonly BindableProperty KeyboardTypeProperty =
             BindableProperty.Create(nameof(KeyboardType), typeof(Keyboard), typeof(XEntryCellWithIcon), null);
-
         public static readonly BindableProperty MaxLengthProperty =
            BindableProperty.Create(nameof(MaxLength), typeof(int), typeof(XEntry), int.MaxValue);
         
         XEntry entry;
-        Image image;
 
         public Keyboard KeyboardType
         {
@@ -59,13 +55,6 @@ namespace XControls.Forms
         }
         public XEntryCellWithIcon():base()
         {
-            
-            var formStackLayout = new StackLayout
-            {
-                Orientation = StackOrientation.Horizontal,
-                HorizontalOptions = LayoutOptions.FillAndExpand,
-                VerticalOptions = LayoutOptions.CenterAndExpand
-            };
             entry = new XEntry()
             {
                 Text = Text,
@@ -76,18 +65,9 @@ namespace XControls.Forms
                 AllowClear = true,
                 FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Entry))
             };
-            image = new Image(){
-                WidthRequest = 30,
-                VerticalOptions = LayoutOptions.Center,
-                Opacity = 0.5
-            };
 
             entry.TextChanged += (s, e) => Text = e.NewTextValue;
-            formStackLayout.Children.Add(image);
-            formStackLayout.Children.Add(entry);
-            Tapped += FormEntryCell_Tapped;
-            View = formStackLayout;
-
+            this.FormLayout(entry);
         }
 
 
@@ -110,10 +90,6 @@ namespace XControls.Forms
             {
                 entry.IsPassword = IsPassword;
             }
-            if (propertyName == IconProperty.PropertyName)
-            {
-                image.Source = Icon;
-            }
             if (propertyName == KeyboardTypeProperty.PropertyName)
             {
                 entry.Keyboard = KeyboardType;
@@ -132,17 +108,15 @@ namespace XControls.Forms
                 entry.Placeholder = PlaceHolder;
                 entry.Text = Text;
                 entry.IsPassword = IsPassword;
-                image.Source = Icon;
                 entry.MaxLength = MaxLength;
             }
         }
 
-        private void FormEntryCell_Tapped(object sender, EventArgs e)
+
+        protected override void FormEntryCell_Tapped(object sender, EventArgs e)
         {
             entry.Focus();
         }
-
-
     }
 
 }
