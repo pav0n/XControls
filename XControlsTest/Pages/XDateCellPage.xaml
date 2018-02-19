@@ -10,6 +10,7 @@
                     <controls:XDateCell Title="Fecha" Detail="formato default" Date="{Binding Date1}"/>
                     <controls:XDateCell Title="Fecha" Format="dd/MM/yyyy" Date="{Binding Date2}" Detail="Formato dd/MM/yyyy"/>
                     <controls:XDateCell Title="Fecha" Date="{Binding Date2}" Detail="Colores personalizados" DetailColor="Blue" TitleColor="Green" DateColor="Red" />
+                    <controls:XTimeCell Title="Time" Time="{Binding Time1}" Detail="Colores personalizados" DetailColor="Blue" TitleColor="Green" TimeColor="{Binding TimeColor}" />
                 </TableSection>
             </TableView.Root>
         </TableView>

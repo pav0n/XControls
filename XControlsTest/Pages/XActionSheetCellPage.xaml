@@ -4,5 +4,14 @@
     xmlns:controls="clr-namespace:XControls.Forms;assembly=XControls.Forms"
     x:Class="XControlsTest.Pages.XActionSheetCellPage">
 	<ContentPage.Content>
+        <TableView Intent="Form">
+            <TableView.Root>
+                <TableSection>
+                    <controls:XActionSheetCell Title="Numbers" Detail="Array" Text="{Binding Number}" ItemsSource="{Binding ListNumbers}" SelectorTitle="Numbers"/>
+                    <controls:XActionSheetCell Title="Colors" Text="{Binding Color}" Detail="List" ItemsSource="{Binding ListColors}"/>
+                    <controls:XActionSheetCell Title="Animals" Text="{Binding Animal}" Detail="Colores personalizados" ItemsSource="{Binding ListAnimals}" DetailColor="Blue" TitleColor="Green" />
+                </TableSection>
+            </TableView.Root>
+        </TableView>
 	</ContentPage.Content>
 </ContentPage>

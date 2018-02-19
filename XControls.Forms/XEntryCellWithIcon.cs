@@ -36,11 +36,6 @@ namespace XControls.Forms
             set { SetValue(TextProperty, value); }
         }
 
-        public string Icon
-        {
-            get { return (string)GetValue(IconProperty); }
-            set { SetValue(IconProperty, value); }
-        }
 
         public bool IsPassword
         {

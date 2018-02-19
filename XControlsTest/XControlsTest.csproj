@@ -69,6 +69,7 @@
     <Compile Include="Pages\XActionSheetCellPage.xaml.cs">
       <DependentUpon>XActionSheetCellPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\XActionSheetCellViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">

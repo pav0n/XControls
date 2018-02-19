@@ -45,6 +45,8 @@
     <Compile Include="XSwitch.cs" />
     <Compile Include="XTextCell.cs" />
     <Compile Include="XIconBaseViewCell.cs" />
+    <Compile Include="XTimeCell.cs" />
+    <Compile Include="XTimePicker.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

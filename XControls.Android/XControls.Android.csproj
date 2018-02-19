@@ -109,6 +109,7 @@
     <Compile Include="Renderers\XViewCellRenderer.cs" />
     <Compile Include="Renderers\XDatePickerRenderer.cs" />
     <Compile Include="Renderers\XSwitchRenderer.cs" />
+    <Compile Include="Renderers\XTimePickerRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

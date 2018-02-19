@@ -44,10 +44,10 @@ namespace XControls.Forms
             set { SetValue(TextProperty, value); }
         }
         Label label;
-        string[] internalItemsSource;
+        string[] internalItemsSource = {};
         public XActionSheetCell():base()
         {  
-            InputHorizontalOptions = LayoutOptions.FillAndExpand;
+            InputHorizontalOptions = LayoutOptions.EndAndExpand;
             label = new Label
             {
                 Text = Text,
@@ -62,7 +62,7 @@ namespace XControls.Forms
         protected override async void FormEntryCell_Tapped(object sender, EventArgs e)
         {
             var result = await Xamarin.Forms.Application.Current.MainPage.DisplayActionSheet(SelectorTitle, CancelTitle, null, internalItemsSource);
-            if(result != null)
+            if(result != CancelTitle)
             {
                 Text = result;
             }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 
 using Xamarin.Forms;
+using XControlsTest.ViewModels;
 
 namespace XControlsTest.Pages
 {
@@ -10,6 +11,7 @@ namespace XControlsTest.Pages
         public XActionSheetCellPage()
         {
             InitializeComponent();
+            BindingContext = new XActionSheetCellViewModel();
         }
     }
 }
