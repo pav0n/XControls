@@ -6,9 +6,9 @@ namespace XControls.Forms
     public class XEntryCellWithIcon:XIconBaseViewCell
     {
         public static readonly BindableProperty PlaceHolderProperty =
-            BindableProperty.Create("PlaceHolder", typeof(string), typeof(XEntryCellWithIcon), "PlaceHolder");
+            BindableProperty.Create( nameof(PlaceHolder), typeof(string), typeof(XEntryCellWithIcon), default(string));
         public static readonly BindableProperty TextProperty =
-            BindableProperty.Create("Text", typeof(string), typeof(XEntryCellWithIcon), default(string), BindingMode.TwoWay);
+            BindableProperty.Create(nameof(Text), typeof(string), typeof(XEntryCellWithIcon), default(string), BindingMode.TwoWay);
         public static readonly BindableProperty IsPasswordProperty =
             BindableProperty.Create(nameof(IsPassword), typeof(bool), typeof(XEntryCellWithIcon), false);
         public static readonly BindableProperty KeyboardTypeProperty =
