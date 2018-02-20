@@ -5,23 +5,13 @@ namespace XControls.Forms
 {
     public abstract class XIconBaseViewCell:XViewCell
     {
-        public static readonly forms.BindableProperty DetailProperty =
-                                        forms.BindableProperty.Create(nameof(Detail), typeof(string), typeof(XIconBaseViewCell), default(string));
-        public static readonly forms.BindableProperty DetailColorProperty =
-                                        forms.BindableProperty.Create(nameof(DetailColor), typeof(forms.Color), typeof(XIconBaseViewCell), forms.Color.DarkGray);
-
-
-
-        public static readonly forms.BindableProperty ExtraDetailProperty =
-                                        forms.BindableProperty.Create(nameof(ExtraDetail), typeof(string), typeof(XIconBaseViewCell), default(string));
-        public static readonly forms.BindableProperty ExtraDetailColorProperty =
-                                        forms.BindableProperty.Create(nameof(ExtraDetailColor), typeof(forms.Color), typeof(XIconBaseViewCell), forms.Color.DarkGray);
-
+        public static readonly forms.BindableProperty DetailProperty = XProperties.DetailProperty;
+        public static readonly forms.BindableProperty DetailColorProperty = XProperties.DetailColorProperty;
+        public static readonly forms.BindableProperty ExtraDetailProperty = XProperties.ExtraDetailProperty;
+        public static readonly forms.BindableProperty ExtraDetailColorProperty = XProperties.ExtraDetailColorProperty;
         public static readonly forms.BindableProperty IconProperty =
                                         forms.BindableProperty.Create(nameof(Icon), typeof(forms.ImageSource), typeof(XIconBaseViewCell), null);
 
-        public static readonly forms.BindableProperty InputHorizontalOptionsProperty =
-                                        forms.BindableProperty.Create(nameof(InputHorizontalOptions), typeof(forms.LayoutOptions), typeof(XIconBaseViewCell), forms.LayoutOptions.FillAndExpand);
         public forms.ImageSource Icon
         {
             set { SetValue(IconProperty, value); }
@@ -52,11 +42,7 @@ namespace XControls.Forms
             set { SetValue(ExtraDetailProperty, value); }
             get { return (string)GetValue(ExtraDetailProperty); }
         }
-        public forms.LayoutOptions InputHorizontalOptions
-        {
-            set { SetValue(InputHorizontalOptionsProperty, value); }
-            get { return (forms.LayoutOptions)GetValue(InputHorizontalOptionsProperty); }
-        }
+        public forms.LayoutOptions InputHorizontalOptions = forms.LayoutOptions.FillAndExpand;
 
         private forms.Image icon;
         private forms.Label detail;

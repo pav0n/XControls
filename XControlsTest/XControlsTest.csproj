@@ -46,6 +46,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pages\XEntryCellPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -70,6 +74,9 @@
       <DependentUpon>XActionSheetCellPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\XActionSheetCellViewModel.cs" />
+    <Compile Include="Pages\XEntryCellPage.xaml.cs">
+      <DependentUpon>XEntryCellPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">

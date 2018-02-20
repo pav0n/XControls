@@ -24,8 +24,7 @@ namespace XControls.Forms
         public static readonly BindableProperty BottomBorderColorProperty =
             BindableProperty.Create(nameof(BottomBorderColor), typeof(Color), typeof(XEntry), Color.Default);
 
-        public static readonly BindableProperty MaxLengthProperty =
-            BindableProperty.Create(nameof(MaxLength), typeof(int), typeof(XEntry), int.MaxValue);
+        public static readonly BindableProperty MaxLengthProperty = XProperties.MaxLengthProperty;
 
         //public static readonly BindableProperty HideCursorProperty =
         //    BindableProperty.Create(nameof(HideCursor), typeof(bool), typeof(XEntry), false);

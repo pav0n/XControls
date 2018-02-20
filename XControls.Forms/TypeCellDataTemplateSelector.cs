@@ -29,8 +29,8 @@ namespace XControls.Forms
             XDateCellTemplate.SetBinding(XTitleBaseViewCell.TitleProperty, XTitleBaseViewCell.TitleProperty.PropertyName);
             XDateCellTemplate.SetBinding(XTitleBaseViewCell.TitleColorProperty, XTitleBaseViewCell.TitleColorProperty.PropertyName);
             XDateCellTemplate.SetBinding(XTitleBaseViewCell.TitleFontSizeProperty, XTitleBaseViewCell.TitleFontSizeProperty.PropertyName);
-            XDateCellTemplate.SetBinding(XDateCell.DateProperty, XDateCell.DateProperty.PropertyName);
-            XDateCellTemplate.SetBinding(XDateCell.FormatProperty, XDateCell.FormatProperty.PropertyName);
+            XDateCellTemplate.SetBinding(XProperties.DateProperty, XProperties.DateProperty.PropertyName);
+            XDateCellTemplate.SetBinding(XProperties.FormatProperty, XProperties.FormatProperty.PropertyName);
 
         }
         protected override DataTemplate OnSelectTemplate(object item, BindableObject container)

@@ -8,17 +8,11 @@ namespace XControls.Forms
 {
     public class XActionSheetCell : XTitleBaseViewCell
     {
-        
-        public static readonly BindableProperty SelectorTitleProperty =
-            BindableProperty.Create(nameof(SelectorTitle), typeof(string), typeof(XActionSheetCell), default(string));
 
-        public static readonly BindableProperty CancelTitleProperty =
-            BindableProperty.Create(nameof(CancelTitle), typeof(string), typeof(XActionSheetCell), "Cancel");
-        
-        public static readonly BindableProperty ItemsSourceProperty =
-            BindableProperty.Create(nameof(ItemsSource), typeof(IEnumerable<string>), typeof(XActionSheetCell), new List<string>());
-        public static readonly BindableProperty TextProperty =
-            BindableProperty.Create(nameof(Text), typeof(string), typeof(XTextCell), default(string), BindingMode.TwoWay);
+        public static readonly BindableProperty SelectorTitleProperty = XProperties.SelectorTitleProperty;
+        public static readonly BindableProperty CancelTitleProperty = XProperties.CancelTitleProperty;
+        public static readonly BindableProperty ItemsSourceProperty = XProperties.ItemsSourceProperty;
+        public static readonly BindableProperty TextProperty = XProperties.TextProperty;
 
 
         public string SelectorTitle

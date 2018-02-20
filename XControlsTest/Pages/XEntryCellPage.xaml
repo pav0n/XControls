@@ -1,5 +1,19 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="XControlsTest.Pages.XEntryCellPage">
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:XControls.Forms;assembly=XControls.Forms"
+    Title="XEntryCell"
+    x:Class="XControlsTest.Pages.XEntryCellPage">
 	<ContentPage.Content>
+        <TableView Intent="Form">
+            <TableView.Root>
+                <TableSection>
+                    <controls:XEntryCell Title="User" PlaceHolder="tocino eg."  Detail="usuario obligatorio"/>
+                    <controls:XEntryCell Title="Password" IsPassword="true" PlaceHolder="Password" Detail="password obligatorio"/>
+                    <controls:XEntryCell Title="Phone" MaxLength="10" PlaceHolder="5555555555" />
+                    <controls:XEntryCell Title="Color" PlaceHolder="red eg." TitleColor="Blue" TextColor="Green" PlaceHolderColor="Lime" />
+                </TableSection>
+            </TableView.Root>
+        </TableView>
 	</ContentPage.Content>
 </ContentPage>

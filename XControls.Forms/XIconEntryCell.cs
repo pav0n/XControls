@@ -3,18 +3,13 @@ using Xamarin.Forms;
 
 namespace XControls.Forms
 {
-    public class XEntryCellWithIcon:XIconBaseViewCell
+    public class XIconEntryCell:XIconBaseViewCell
     {
-        public static readonly BindableProperty PlaceHolderProperty =
-            BindableProperty.Create( nameof(PlaceHolder), typeof(string), typeof(XEntryCellWithIcon), default(string));
-        public static readonly BindableProperty TextProperty =
-            BindableProperty.Create(nameof(Text), typeof(string), typeof(XEntryCellWithIcon), default(string), BindingMode.TwoWay);
-        public static readonly BindableProperty IsPasswordProperty =
-            BindableProperty.Create(nameof(IsPassword), typeof(bool), typeof(XEntryCellWithIcon), false);
-        public static readonly BindableProperty KeyboardTypeProperty =
-            BindableProperty.Create(nameof(KeyboardType), typeof(Keyboard), typeof(XEntryCellWithIcon), null);
-        public static readonly BindableProperty MaxLengthProperty =
-           BindableProperty.Create(nameof(MaxLength), typeof(int), typeof(XEntry), int.MaxValue);
+        public static readonly BindableProperty PlaceHolderProperty = XProperties.PlaceHolderProperty;
+        public static readonly BindableProperty TextProperty = XProperties.TextProperty;
+        public static readonly BindableProperty IsPasswordProperty = XProperties.IsPasswordProperty;
+        public static readonly BindableProperty KeyboardTypeProperty = XProperties.KeyboardTypeProperty;
+        public static readonly BindableProperty MaxLengthProperty = XProperties.MaxLengthProperty;
         
         XEntry entry;
 
@@ -48,7 +43,7 @@ namespace XControls.Forms
             get { return (int)GetValue(MaxLengthProperty); }
             set { SetValue(MaxLengthProperty, value); }
         }
-        public XEntryCellWithIcon():base()
+        public XIconEntryCell():base()
         {
             entry = new XEntry()
             {

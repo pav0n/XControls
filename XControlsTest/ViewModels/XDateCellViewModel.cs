@@ -33,8 +33,6 @@ namespace XControlsTest.ViewModels
                 SetProperty(ref date2, value, nameof(Date2));
             }
         }
-
-
         TimeSpan time1;
         public TimeSpan Time1
         {
@@ -48,7 +46,6 @@ namespace XControlsTest.ViewModels
                 SetProperty(ref time1, value, nameof(Time1));
             }
         }
-
         Color timeColor;
         public Color TimeColor
         {
@@ -61,7 +58,6 @@ namespace XControlsTest.ViewModels
                 SetProperty(ref timeColor, value, nameof(TimeColor));
             }
         }
-
         public XDateCellViewModel()
         {
             Date1 = DateTime.Now;
@@ -73,7 +69,6 @@ namespace XControlsTest.ViewModels
                 return true;
             });
         }
-
         Color randomColor()
         {
             Random randonGen = new Random();

@@ -9,23 +9,24 @@
         <TableView Intent="Form">
             <TableView.Root>
                 <TableSection>
-                    <controls:XTextCell ExtraDetail="7" Text="XEntry"  Detail="Mostrando uso de XEntry" ShowDisclosure="true" Tapped="TappedXEntry"/>
-                    <controls:XTextCell ExtraDetail="3" Text="XDateCell"  Detail="Mostrando uso de XDateCell" ShowDisclosure="true" Tapped="TappedXDateCell"/>
+                    <controls:XTextCell AutomationId="ShowEntrys" ExtraDetail="7" Text="XEntry"  Detail="Mostrando uso de XEntry" ShowDisclosure="true" Tapped="TappedXEntry"/>
+                    <controls:XTextCell ExtraDetail="3" Text="XDateCell and XTimeCell"  Detail="Mostrando uso de XDateCell y XTimeCell" ShowDisclosure="true" Tapped="TappedXDateCell"/>
                     <controls:XTextCell ExtraDetail="3" Text="XActionSheetCell"  Detail="Mostrando uso de XActionSheetCell" ShowDisclosure="true" Tapped="TappedXActionSheetCell"/>
+                    <controls:XTextCell ExtraDetail="3" Text="XEntryCell"  Detail="Mostrando uso de XEntryCell" ShowDisclosure="true" Tapped="TappedXEntryCell"/>
                 </TableSection>
             </TableView.Root>
         </TableView>
 
-        
+
         <TableView Intent="Form">
             <TableView.Root>
                 <TableSection>
                     <controls:XTextCell Text="Texto" Title="Text" />
-                    <controls:XEntryCellWithIcon Icon="http://via.placeholder.com/350x150" Text="Texto" PlaceHolder="Nombre" KeyboardType="Text"/>
-                    <controls:XEntryCellWithIcon IsPassword="true" Text="" PlaceHolder="Password" KeyboardType="Text"/>
-                    <controls:XEntryCellWithIcon Icon="ic_face" PlaceHolder="Email" KeyboardType="Email"/>
-                    <controls:XEntryCellWithIcon Icon="ic_face" PlaceHolder="Telephone" KeyboardType="Telephone"/>
-                    <controls:XEntryCellWithIcon Icon="ic_face" PlaceHolder="URl" KeyboardType="Url" ShowDisclosure="true" BackgroundColor="Maroon"/>
+                    <controls:XIconEntryCell Icon="http://via.placeholder.com/350x150" Text="Texto" PlaceHolder="Nombre" KeyboardType="Text"/>
+                    <controls:XIconEntryCell IsPassword="true" Text="" PlaceHolder="Password" KeyboardType="Text"/>
+                    <controls:XIconEntryCell Icon="ic_face" PlaceHolder="Email" KeyboardType="Email"/>
+                    <controls:XIconEntryCell Icon="ic_face" PlaceHolder="Telephone" KeyboardType="Telephone"/>
+                    <controls:XIconEntryCell Icon="ic_face" PlaceHolder="URl" KeyboardType="Url" ShowDisclosure="true" BackgroundColor="Maroon"/>
                     <controls:XViewCell ShowDisclosure="true">
                         <controls:XSwitch TintColor="Lime" OnTintColor="Red" ThumbTintColor="Blue"/>
                     </controls:XViewCell>

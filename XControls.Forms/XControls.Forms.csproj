@@ -32,7 +32,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="XEntry.cs" />
-    <Compile Include="XEntryCellWithIcon.cs" />
+    <Compile Include="XIconEntryCell.cs" />
     <Compile Include="XViewCell.cs" />
     <Compile Include="XTextCellWithIcon.cs" />
     <Compile Include="XDateCell.cs" />
@@ -47,6 +47,8 @@
     <Compile Include="XIconBaseViewCell.cs" />
     <Compile Include="XTimeCell.cs" />
     <Compile Include="XTimePicker.cs" />
+    <Compile Include="XEntryCell.cs" />
+    <Compile Include="XIconDateCell.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

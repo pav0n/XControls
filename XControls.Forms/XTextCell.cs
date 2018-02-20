@@ -5,10 +5,8 @@ namespace XControls.Forms
 {
     public class XTextCell:XTitleBaseViewCell
     {
-        public static readonly BindableProperty TextProperty =
-            BindableProperty.Create(nameof(Text), typeof(string), typeof(XTextCell), default(string), BindingMode.TwoWay);
-        public static readonly BindableProperty TextColorProperty =
-            BindableProperty.Create(nameof(TextColor), typeof(Color), typeof(XTextCell), Color.Black);
+        public static readonly BindableProperty TextProperty = XProperties.TextProperty;
+        public static readonly BindableProperty TextColorProperty = XProperties.TextColorProperty;
         
         public string Text
         {

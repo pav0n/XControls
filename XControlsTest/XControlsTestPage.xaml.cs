@@ -34,7 +34,13 @@ namespace XControlsTest
         void TappedXActionSheetCell(object sender, System.EventArgs e)
         {
             var p = new XActionSheetCellPage();
-            this.Navigation.PushAsync(p); 
+            this.Navigation.PushAsync(p);
+        }
+
+        void TappedXEntryCell(object sender, System.EventArgs e)
+        {
+            var p = new XEntryCellPage();
+            this.Navigation.PushAsync(p);
         }
     }
 }

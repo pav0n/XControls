@@ -4,22 +4,14 @@ namespace XControls.Forms
 {
     public  abstract class XTitleBaseViewCell:XViewCell
     {
-        public static readonly forms.BindableProperty TitleProperty =
-                                        forms.BindableProperty.Create(nameof(Title), typeof(string), typeof(XTitleBaseViewCell), default(string));
-        
-        public static readonly forms.BindableProperty TitleFontSizeProperty =
-                                        forms.BindableProperty.Create(nameof(TitleFontSize), typeof(double), typeof(XTitleBaseViewCell), forms.Device.GetNamedSize(forms.NamedSize.Medium, typeof(forms.Label)));
+        public static readonly forms.BindableProperty TitleProperty = XProperties.TitleProperty;
+        public static readonly forms.BindableProperty TitleFontSizeProperty = XProperties.TitleFontSizeProperty;
+        public static readonly forms.BindableProperty TitleColorProperty = XProperties.TitleColorProperty;
+        public static readonly forms.BindableProperty DetailProperty = XProperties.DetailProperty;
+        public static readonly forms.BindableProperty DetailColorProperty = XProperties.DetailColorProperty;
+        public static readonly forms.BindableProperty ExtraDetailProperty = XProperties.ExtraDetailProperty;
+        public static readonly forms.BindableProperty ExtraDetailColorProperty = XProperties.ExtraDetailColorProperty;
 
-        public static readonly forms.BindableProperty TitleColorProperty =
-                                        forms.BindableProperty.Create(nameof(TitleColor), typeof(forms.Color), typeof(XTitleBaseViewCell), forms.Color.Black);
-        public static readonly forms.BindableProperty DetailProperty =
-                                        forms.BindableProperty.Create(nameof(Detail), typeof(string), typeof(XTitleBaseViewCell), default(string));
-        public static readonly forms.BindableProperty DetailColorProperty =
-                                        forms.BindableProperty.Create(nameof(DetailColor), typeof(forms.Color), typeof(XTitleBaseViewCell), forms.Color.DarkGray);
-        public static readonly forms.BindableProperty ExtraDetailProperty =
-                                        forms.BindableProperty.Create(nameof(ExtraDetail), typeof(string), typeof(XTitleBaseViewCell), default(string));
-        public static readonly forms.BindableProperty ExtraDetailColorProperty =
-                                        forms.BindableProperty.Create(nameof(ExtraDetailColor), typeof(forms.Color), typeof(XTitleBaseViewCell), forms.Color.DarkGray);
         public string Title
         {
             set { SetValue(TitleProperty, value); }

@@ -3,35 +3,97 @@ using System.Collections.Generic;
 using Xamarin.Forms;
 namespace XControls.Forms
 {
-    public class XDateCell:XTitleBaseViewCell
+    public static class XProperties
     {
-
         public static readonly BindableProperty DateProperty =
-            BindableProperty.Create(nameof(Date), typeof(DateTime), typeof(XDateCell), default(DateTime), BindingMode.TwoWay);
-        
+            BindableProperty.Create("Date", typeof(DateTime), typeof(XProperties), default(DateTime), BindingMode.TwoWay);
+
         public static readonly BindableProperty FormatProperty =
-            BindableProperty.Create(nameof(Format), typeof(string), typeof(XDateCell), "yyyy/MM/dd");
+            BindableProperty.Create("Format", typeof(string), typeof(XProperties), "yyyy/MM/dd");
 
         public static readonly BindableProperty DateFontSizeProperty =
-            BindableProperty.Create(nameof(DateFontSize), typeof(double), typeof(XDateCell), Device.GetNamedSize(NamedSize.Medium, typeof(Label)));
-
+            BindableProperty.Create("DateFontSize", typeof(double), typeof(XProperties), Device.GetNamedSize(NamedSize.Medium, typeof(Label)));
+        
         public static readonly BindableProperty DateColorProperty =
-            BindableProperty.Create(nameof(DateColor), typeof(Color), typeof(XDateCell), Color.Black);
+            BindableProperty.Create("DateColor", typeof(Color), typeof(XProperties), Color.Black);
+        
+        public static readonly BindableProperty PlaceHolderProperty =
+            BindableProperty.Create("PlaceHolder", typeof(string), typeof(XProperties), default(string));
+        
+        public static readonly BindableProperty TextProperty =
+            BindableProperty.Create("Text", typeof(string), typeof(XProperties), default(string), BindingMode.TwoWay);
+        
+        public static readonly BindableProperty IsPasswordProperty =
+            BindableProperty.Create("IsPassword", typeof(bool), typeof(XProperties), false);
+        
+        public static readonly BindableProperty KeyboardTypeProperty =
+            BindableProperty.Create("KeyboardType", typeof(Keyboard), typeof(XProperties), null);
+        
+        public static readonly BindableProperty MaxLengthProperty =
+            BindableProperty.Create("MaxLength", typeof(int), typeof(XProperties), int.MaxValue);
+        
+        public static readonly BindableProperty TextColorProperty =
+            BindableProperty.Create("TextColor", typeof(Color), typeof(XProperties), Color.Black);
+        
+        public static readonly BindableProperty PlaceHolderColorProperty =
+            BindableProperty.Create("PlaceHolderColor", typeof(Color), typeof(XProperties), Color.Black);
+        
+        public static readonly BindableProperty SelectorTitleProperty =
+            BindableProperty.Create("SelectorTitle", typeof(string), typeof(XProperties), default(string));
 
+        public static readonly BindableProperty CancelTitleProperty =
+            BindableProperty.Create("CancelTitle", typeof(string), typeof(XProperties), "Cancel");
+
+        public static readonly BindableProperty ItemsSourceProperty =
+            BindableProperty.Create("ItemsSource", typeof(IEnumerable<string>), typeof(XProperties), new List<string>());
+
+        public static readonly BindableProperty TitleProperty =
+            BindableProperty.Create("Title", typeof(string), typeof(XProperties), default(string));
+
+        public static readonly BindableProperty TitleFontSizeProperty =
+            BindableProperty.Create("TitleFontSize", typeof(double), typeof(XProperties), Device.GetNamedSize(NamedSize.Medium, typeof(Label)));
+
+        public static readonly BindableProperty TitleColorProperty =
+            BindableProperty.Create("TitleColor", typeof(Color), typeof(XProperties), Color.Black);
+        
+        public static readonly BindableProperty DetailProperty =
+            BindableProperty.Create("Detail", typeof(string), typeof(XProperties), default(string));
+        
+        public static readonly BindableProperty DetailColorProperty =
+            BindableProperty.Create("DetailColor", typeof(Color), typeof(XProperties), Color.DarkGray);
+        
+        public static readonly BindableProperty ExtraDetailProperty =
+            BindableProperty.Create("ExtraDetail", typeof(string), typeof(XProperties), default(string));
+        
+        public static readonly BindableProperty ExtraDetailColorProperty =
+            BindableProperty.Create("ExtraDetailColor", typeof(Color), typeof(XProperties), Color.DarkGray);
+
+
+    }
+    public class XDateCell:XTitleBaseViewCell
+    {
+        public static readonly BindableProperty DateProperty = XProperties.DateProperty;
+
+        public static readonly BindableProperty FormatProperty = XProperties.FormatProperty;
+
+        public static readonly BindableProperty DateFontSizeProperty = XProperties.DateFontSizeProperty;
+
+        public static readonly BindableProperty DateColorProperty = XProperties.DateColorProperty;
+        
         public DateTime Date
         {
             set { SetValue(DateProperty, value); }
-            get { return (DateTime)GetValue(DateProperty); }
+            get { return (DateTime)GetValue(XProperties.DateProperty); }
         }
         public string Format
         {
             set { SetValue(FormatProperty, value); }
-            get { return (string)GetValue(FormatProperty); }
+            get { return (string)GetValue(XProperties.FormatProperty); }
         }
         public double DateFontSize
         {
             set { SetValue(DateFontSizeProperty, value); }
-            get { return (double)GetValue(DateFontSizeProperty); }
+            get { return (double)GetValue(XProperties.DateFontSizeProperty); }
         }
         public Color DateColor
         {
@@ -79,12 +141,6 @@ namespace XControls.Forms
            
         }
 
-        protected void changevalue<U>( ref U backingStore, U value, string propertyName=null)
-        {
-            if (EqualityComparer<U>.Default.Equals(backingStore, value))
-                return;
-            backingStore = value;
-        }
         protected override void OnBindingContextChanged()
         {
             base.OnBindingContextChanged();
