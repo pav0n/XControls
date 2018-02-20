@@ -49,6 +49,7 @@
     <Compile Include="XTimePicker.cs" />
     <Compile Include="XEntryCell.cs" />
     <Compile Include="XIconDateCell.cs" />
+    <Compile Include="XIconTimeCell.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

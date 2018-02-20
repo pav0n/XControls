@@ -50,6 +50,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pages\XIconDataCellPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -76,6 +80,9 @@
     <Compile Include="ViewModels\XActionSheetCellViewModel.cs" />
     <Compile Include="Pages\XEntryCellPage.xaml.cs">
       <DependentUpon>XEntryCellPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\XIconDataCellPage.xaml.cs">
+      <DependentUpon>XIconDataCellPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

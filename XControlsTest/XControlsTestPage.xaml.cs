@@ -42,5 +42,11 @@ namespace XControlsTest
             var p = new XEntryCellPage();
             this.Navigation.PushAsync(p);
         }
+
+        void TappedXIconDateCell(object sender, System.EventArgs e)
+        {
+            var p = new XIconDataCellPage();
+            this.Navigation.PushAsync(p);
+        }
     }
 }

@@ -27,8 +27,8 @@ namespace XControls.Forms
 
         public string ExtraDetail
         {
-            set { SetValue(DetailProperty, value); }
-            get { return (string)GetValue(DetailProperty); }
+            set { SetValue(ExtraDetailProperty, value); }
+            get { return (string)GetValue(ExtraDetailProperty); }
         }
 
         public forms.Color ExtraDetailColor
@@ -39,8 +39,8 @@ namespace XControls.Forms
 
         public string Detail
         {
-            set { SetValue(ExtraDetailProperty, value); }
-            get { return (string)GetValue(ExtraDetailProperty); }
+            set { SetValue(DetailProperty, value); }
+            get { return (string)GetValue(DetailProperty); }
         }
         public forms.LayoutOptions InputHorizontalOptions = forms.LayoutOptions.FillAndExpand;
 
@@ -99,7 +99,7 @@ namespace XControls.Forms
             extraDetail = new forms.Label
             {
                 VerticalOptions = forms.LayoutOptions.FillAndExpand,
-                Text = ExtraDetail,
+                Text = ExtraDetail ,
                 FontSize = forms.Device.GetNamedSize(forms.NamedSize.Micro, typeof(forms.Label)),
                 LineBreakMode = forms.LineBreakMode.TailTruncation,
                 TextColor = ExtraDetailColor

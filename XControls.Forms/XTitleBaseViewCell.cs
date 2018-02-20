@@ -91,7 +91,8 @@ namespace XControls.Forms
                 },
                 Margin = new forms.Thickness(12, 0, 9, 0),
                 RowSpacing = 0
-            };titleColumn.Width = string.IsNullOrEmpty(Title) ? 0 : titleColumnWidth;
+            };
+            titleColumn.Width = string.IsNullOrEmpty(Title) ? 0 : titleColumnWidth;
             label = new forms.Label
             {
                 VerticalOptions = forms.LayoutOptions.CenterAndExpand,
