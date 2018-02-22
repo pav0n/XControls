@@ -45,7 +45,13 @@ namespace XControlsTest
 
         void TappedXIconDateCell(object sender, System.EventArgs e)
         {
-            var p = new XIconDataCellPage();
+            var p = new XIconDateCellPage();
+            this.Navigation.PushAsync(p);
+        }
+
+        void TappedXSwitchCell(object sender, System.EventArgs e)
+        {
+            var p = new XSwitchCellPage();
             this.Navigation.PushAsync(p);
         }
     }

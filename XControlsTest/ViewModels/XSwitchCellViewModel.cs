@@ -4,16 +4,19 @@ using Xamarin.Forms;
 
 namespace XControlsTest.ViewModels
 {
-    public class XSwitchCellViewModel : ContentPage
+    public class XSwitchCellViewModel : BaseViewModel
     {
-        public XSwitchCellViewModel()
+        bool isToggled;
+        public bool IsToggled
         {
-            Content = new StackLayout
+            get
             {
-                Children = {
-                    new Label { Text = "Hello ContentPage" }
-                }
-            };
+                return isToggled;
+            }
+            set
+            {
+                SetProperty(ref isToggled, value, nameof(IsToggled));
+            }
         }
     }
 }

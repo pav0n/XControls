@@ -1,5 +1,22 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="XControlsTest.Pages.XSwitchCellPage">
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:XControls.Forms;assembly=XControls.Forms"
+    x:Class="XControlsTest.Pages.XSwitchCellPage">
 	<ContentPage.Content>
+
+         <TableView Intent="Form">
+            <TableView.Root>
+                <TableSection>
+                    <controls:XSwitchCell IsToggled="{Binding IsToggled}"/>
+                    <controls:XSwitchCell Title="Test" OnTintColor="Red" TintColor="Lime" ThumbTintColor="Fuchsia" />
+                    <controls:XSwitchCell Title="Test 2" IsToggled="{Binding IsToggled}" OnTintColor="Green" TintColor="Blue" ThumbTintColor="Purple" Detail="Select"/>
+                    <controls:XSwitchCell Title="Test 3" IsToggled="true" OnTintColor="Blue" TintColor="Lime" ThumbTintColor="Fuchsia" Detail="Select" />
+                    <controls:XIconSwitchCell Icon="ic_thumb_up.png" OnTintColor="Blue" TintColor="Lime" ThumbTintColor="Fuchsia" Detail="Select" />
+                </TableSection>
+            </TableView.Root>
+        </TableView>
+
+        
 	</ContentPage.Content>
 </ContentPage>

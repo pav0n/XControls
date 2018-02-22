@@ -6,9 +6,9 @@ using XControlsTest.ViewModels;
 
 namespace XControlsTest.Pages
 {
-    public partial class XIconDataCellPage : ContentPage
+    public partial class XIconDateCellPage : ContentPage
     {
-        public XIconDataCellPage()
+        public XIconDateCellPage()
         {
             InitializeComponent();
             BindingContext = new XDateCellViewModel();

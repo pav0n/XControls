@@ -50,7 +50,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pages\XIconDataCellPage.xaml">
+    <EmbeddedResource Include="Pages\XIconDateCellPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\XSwitchCellPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -81,9 +85,13 @@
     <Compile Include="Pages\XEntryCellPage.xaml.cs">
       <DependentUpon>XEntryCellPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\XIconDataCellPage.xaml.cs">
-      <DependentUpon>XIconDataCellPage.xaml</DependentUpon>
+    <Compile Include="Pages\XIconDateCellPage.xaml.cs">
+      <DependentUpon>XIconDateCellPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\XSwitchCellPage.xaml.cs">
+      <DependentUpon>XSwitchCellPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\XSwitchCellViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">

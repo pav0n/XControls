@@ -10,10 +10,11 @@
             <TableView.Root>
                 <TableSection>
                     <controls:XTextCell AutomationId="ShowEntrys" ExtraDetail="7" Text="XEntry"  Detail="Mostrando uso de XEntry" ShowDisclosure="true" Tapped="TappedXEntry"/>
-                    <controls:XTextCell ExtraDetail="3" Text="XDateCell and XTimeCell"  Detail="Mostrando uso de XDateCell y XTimeCell" ShowDisclosure="true" Tapped="TappedXDateCell"/>
+                    <controls:XTextCell ExtraDetail="4" Text="XDateCell and XTimeCell"  Detail="Mostrando uso de XDateCell y XTimeCell" ShowDisclosure="true" Tapped="TappedXDateCell"/>
                     <controls:XTextCell ExtraDetail="3" Text="XActionSheetCell"  Detail="Mostrando uso de XActionSheetCell" ShowDisclosure="true" Tapped="TappedXActionSheetCell"/>
-                    <controls:XTextCell ExtraDetail="3" Text="XEntryCell"  Detail="Mostrando uso de XEntryCell" ShowDisclosure="true" Tapped="TappedXEntryCell"/>
-                    <controls:XTextCell ExtraDetail="3" Text="XIconDateCell and XIconTimeCell"  Detail="Mostrando uso de XIconDateCell" ShowDisclosure="true" Tapped="TappedXIconDateCell"/>
+                    <controls:XTextCell ExtraDetail="4" Text="XEntryCell"  Detail="Mostrando uso de XEntryCell" ShowDisclosure="true" Tapped="TappedXEntryCell"/>
+                    <controls:XTextCell ExtraDetail="4" Text="XIconDateCell and XIconTimeCell"  Detail="Mostrando uso de XIconDateCell y XIconTimeCell" ShowDisclosure="true" Tapped="TappedXIconDateCell"/>
+                    <controls:XTextCell ExtraDetail="5" Text="XSwitchCell and XIconSwitchCell"  Detail="Mostrando uso de XSwitchCell y XIconSwitchCell" ShowDisclosure="true" Tapped="TappedXSwitchCell"/>
                 </TableSection>
             </TableView.Root>
         </TableView>

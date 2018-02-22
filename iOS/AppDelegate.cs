@@ -13,13 +13,20 @@ namespace XControlsTest.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+            XControls.Renderers.XEntryRenderer.Init();
 
             // Code for starting up the Xamarin Test Cloud Agent
 #if DEBUG
 			Xamarin.Calabash.Start();
-#endif
-            XControls.Renderers.XEntryRenderer.Init();
+            /*LoadApplication(UXDivers.Gorilla.iOS.Player.CreateApplication(
+            new UXDivers.Gorilla.Config("Good Gorilla")
+                .RegisterAssembly(typeof(XControls.Forms.XViewCell).Assembly)
+            ));*/
             LoadApplication(new App());
+#else
+            LoadApplication(new App());
+#endif
+
 
             return base.FinishedLaunching(app, options);
         }
