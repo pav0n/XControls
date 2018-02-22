@@ -89,8 +89,8 @@ namespace XControls.Forms
                         Width = new forms.GridLength(1, forms.GridUnitType.Auto)
                     }
                 },
-                Margin = new forms.Thickness(12, 0, 9, 0),
-                RowSpacing = 0
+                Margin = new forms.Thickness(12, 0.5, 9, 0),
+                RowSpacing = 0.5
             };
             titleColumn.Width = string.IsNullOrEmpty(Title) ? 0 : titleColumnWidth;
             label = new forms.Label

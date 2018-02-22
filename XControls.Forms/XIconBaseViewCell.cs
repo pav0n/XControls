@@ -77,8 +77,8 @@ namespace XControls.Forms
                         Width = new forms.GridLength(1, forms.GridUnitType.Auto)
                     }
                 },
-                Margin = new forms.Thickness(12, 0, 12, 0),
-                RowSpacing = 0
+                Margin = new forms.Thickness(12, 1, 9, 0),
+                RowSpacing = 0.5
             }; 
 
             icon = new forms.Image()
@@ -94,7 +94,8 @@ namespace XControls.Forms
                 Text = Detail,
                 FontSize = forms.Device.GetNamedSize(forms.NamedSize.Micro, typeof(forms.Label)),
                 LineBreakMode = forms.LineBreakMode.TailTruncation,
-                TextColor = DetailColor
+                TextColor = DetailColor,
+                HorizontalOptions = InputHorizontalOptions
             };
             extraDetail = new forms.Label
             {

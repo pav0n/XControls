@@ -50,6 +50,10 @@
     <Compile Include="XEntryCell.cs" />
     <Compile Include="XIconDateCell.cs" />
     <Compile Include="XIconTimeCell.cs" />
+    <Compile Include="XIconActionSheetCell.cs" />
+    <Compile Include="XSwitchCell.cs" />
+    <Compile Include="XIconSwitchCell.cs" />
+    <Compile Include="XProperties.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

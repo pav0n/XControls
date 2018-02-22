@@ -1,14 +1,12 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Xamarin.Forms;
 
 namespace XControls.Forms
 {
-    public class XActionSheetCell : XTitleBaseViewCell
+    public class XIconActionSheetCell:XIconBaseViewCell
     {
-
         public static readonly BindableProperty SelectorTitleProperty = XProperties.SelectorTitleProperty;
         public static readonly BindableProperty CancelTitleProperty = XProperties.CancelTitleProperty;
         public static readonly BindableProperty ItemsSourceProperty = XProperties.ItemsSourceProperty;
@@ -38,16 +36,16 @@ namespace XControls.Forms
             set { SetValue(TextProperty, value); }
         }
         Label label;
-        string[] internalItemsSource = {};
-        public XActionSheetCell():base()
-        {  
+        string[] internalItemsSource = { };
+        public XIconActionSheetCell():base()
+        {
             InputHorizontalOptions = LayoutOptions.EndAndExpand;
             label = new Label
             {
                 Text = Text,
                 FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label)),
                 LineBreakMode = LineBreakMode.TailTruncation,
-                TextColor = Color.Black
+                TextColor = Color.DarkGray
             };
             this.FormLayout(label);
         }
@@ -56,7 +54,7 @@ namespace XControls.Forms
         protected override async void FormEntryCell_Tapped(object sender, EventArgs e)
         {
             var result = await Xamarin.Forms.Application.Current.MainPage.DisplayActionSheet(SelectorTitle, CancelTitle, null, internalItemsSource);
-            if(result != CancelTitle)
+            if (result != CancelTitle)
             {
                 Text = result;
             }
@@ -64,10 +62,11 @@ namespace XControls.Forms
         protected override void OnPropertyChanged(string propertyName = null)
         {
             base.OnPropertyChanged(propertyName);
-            if(propertyName == ItemsSourceProperty.PropertyName)
+            if (propertyName == ItemsSourceProperty.PropertyName)
             {
                 internalItemsSource = ItemsSource.ToArray();
-            }else if (propertyName == TextProperty.PropertyName)
+            }
+            else if (propertyName == TextProperty.PropertyName)
             {
                 label.Text = Text;
             }

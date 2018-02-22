@@ -5,12 +5,9 @@ namespace XControls.Forms
 {
     public class XSwitch:Switch
     {
-        public static readonly BindableProperty TintColorProperty =
-            BindableProperty.Create(nameof(BackgroundColor), typeof(Color), typeof(XViewCell), default(Color));
-        public static readonly BindableProperty OnTintColorProperty =
-            BindableProperty.Create(nameof(BackgroundColor), typeof(Color), typeof(XViewCell), default(Color));
-        public static readonly BindableProperty ThumbTintColorProperty =
-            BindableProperty.Create(nameof(BackgroundColor), typeof(Color), typeof(XViewCell), default(Color));
+        public static readonly BindableProperty TintColorProperty = XProperties.TintColorProperty;
+        public static readonly BindableProperty OnTintColorProperty = XProperties.OnTintColorProperty;
+        public static readonly BindableProperty ThumbTintColorProperty = XProperties.ThumbTintColorProperty;
 
         public Color TintColor
         {
@@ -29,7 +26,5 @@ namespace XControls.Forms
             get { return (Color)GetValue(ThumbTintColorProperty); }
             set { SetValue(ThumbTintColorProperty, value); }
         }
-
-
     }
 }

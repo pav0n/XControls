@@ -10,7 +10,7 @@
                     <controls:XIconDateCell Icon="ic_thumb_up.png" Detail="formato default" Date="{Binding Date1}"/>
                     <controls:XIconDateCell Icon="ic_thumb_up.png" Format="dd/MM/yyyy" Date="{Binding Date2}" Detail="Formato dd/MM/yyyy"/>
                     <controls:XIconDateCell Icon="ic_thumb_up.png" Date="{Binding Date2}"  DetailColor="Blue"  DateColor="Red" />
-                    <controls:XIconTimeCell Icon="ic_thumb_up.png" Time="{Binding Time1}"  DetailColor="Blue"  TimeColor="{Binding TimeColor}" />
+                    <controls:XIconTimeCell Icon="ic_thumb_up.png" Time="{Binding Time1}"  DetailColor="Blue"  TimeColor="{Binding TimeColor}" ExtraDetail="*" />
                 </TableSection>
             </TableView.Root>
         </TableView>
